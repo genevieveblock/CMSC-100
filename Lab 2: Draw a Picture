@@ -1,24 +1,41 @@
 import arcade
-
+#opening arcade and getting background
 arcade.open_window("Sunset", 800,600)
+
+#setting background to plum to "set the mood" for a sunset
 arcade.set_background_color(arcade.color.PLUM)
+
 arcade.start_render()
+#lines 10-15 are the shades of the sun in the sunset
 arcade.draw_circle_filled(400,200,500,arcade.color.AMARANTH_PINK)
 arcade.draw_circle_filled(400,200,400,arcade.color.RAJAH)
 arcade.draw_circle_filled(400,200,300,arcade.color.SAE)
 arcade.draw_circle_filled(400,200,200,arcade.color.PUMPKIN)
 arcade.draw_circle_filled(400,200,100,arcade.color.SAFETY_ORANGE)
+
+#line 16 is the actual sun
 arcade.draw_circle_filled(400,200,50,arcade.color.CADMIUM_YELLOW)
+
+#lines 18-20 are the shades of the ocean in the sunet
 arcade.draw_lrtb_rectangle_filled(0,800,200,0,arcade.color.MEDIUM_BLUE)
 arcade.draw_lrtb_rectangle_filled(0,800,133,0,arcade.color.MEDIUM_ELECTRIC_BLUE)
 arcade.draw_lrtb_rectangle_filled(0,800,66,0,arcade.color.MEDIUM_PERSIAN_BLUE)
+
+#Lines 25-32 are the boat
+#line 26: base of the boat
 arcade.draw_polygon_filled([[20, 250],
                             [50, 200],
                             [280, 200],
                             [310, 250]],
                             arcade.color.CAPUT_MORTUUM)
+
+#line 33: sail on the right
 arcade.draw_triangle_filled(285, 260, 160, 420,160,260, arcade.color.CREAM)
+
+#line 36: sail on the left
 arcade.draw_triangle_filled(35, 260, 150, 400,150,260, arcade.color.CREAM)
+
+#line 39: mast in the middle of the two sails
 arcade.draw_rectangle_filled(155, 320,5,199, arcade.color.CAPUT_MORTUUM)
 
 arcade.finish_render()
