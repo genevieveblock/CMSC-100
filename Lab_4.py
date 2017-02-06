@@ -15,7 +15,7 @@ def main():
     ship = 5
 
     print(" ")
-#printing choices 
+#printing choices
     while done == False:
         print(" A. Manually row")
         print(" B. Use the sail")
