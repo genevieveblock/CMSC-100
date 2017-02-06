@@ -1,0 +1,18 @@
+import arcade
+def draw_ocean():
+    arcade.draw_lrtb_rectangle_filled(0, 800, 200, 0, arcade.color.MEDIUM_BLUE
+def draw_boat():
+    arcade.draw_polygon_filled([[20, 250],
+                                [50, 200],
+                                [280, 200],
+                                [310, 250]],
+                                arcade.color.CAPUT_MORTUUM)
+    arcade.draw_triangle_filled(285, 260, 160, 420, 160, 260, arcade.color.CREAM)
+    arcade.draw_triangle_filled(35, 260, 150, 400, 150, 260, arcade.color.CREAM)
+    arcade.draw_rectangle_filled(155, 320, 5, 199, arcade.color.CAPUT_MORTUUM)
+arcade.open_window("New Sunset", 800,600)
+arcade.set_background_color(arcade.color.PLUM)
+arcade.start_render()
+draw_ocean()
+draw_boat()
+arcade.finish_render()
