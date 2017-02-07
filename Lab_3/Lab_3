@@ -3,6 +3,7 @@ import arcade
 
 #Function that draws the whale
 def draw_whale(position_x,position_y,):
+    """Drawing the whale"""
 
     arcade.draw_circle_filled(position_x - 100, position_y - 195, 80, arcade.color.PALE_AQUA)
     arcade.draw_rectangle_filled(position_x, position_y - 165.5, 230, 100, arcade.color.PALE_AQUA)
@@ -14,6 +15,7 @@ def draw_whale(position_x,position_y,):
 
 #Function that draws the ocean
 def draw_ocean(position_x, position_y,):
+    """Drawing the ocean"""
 
     arcade.draw_rectangle_filled(position_x, position_y + 190, 2000, 100, arcade.color.MEDIUM_BLUE)
     arcade.draw_rectangle_filled(position_x, position_y + 90, 2000, 100, arcade.color.MEDIUM_ELECTRIC_BLUE)
@@ -21,6 +23,7 @@ def draw_ocean(position_x, position_y,):
 
 #Function that draws the sunset
 def draw_sunset(position_x, position_y):
+    """Drawing the sunset"""
 
     arcade.draw_circle_filled(position_x - 400, position_y - 200, 500, arcade.color.AMARANTH_PINK)
     arcade.draw_circle_filled(position_x - 400, position_y - 200, 400, arcade.color.RAJAH)
