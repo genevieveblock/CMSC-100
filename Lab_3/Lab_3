@@ -1,53 +1,46 @@
 import arcade
 
-"drawing the sunset"
-def draw_sunset():
-    arcade.draw_circle_filled(400, 200, 500, arcade.color.AMARANTH_PINK)
-    arcade.draw_circle_filled(400, 200, 400, arcade.color.RAJAH)
-    arcade.draw_circle_filled(400, 200, 300, arcade.color.SAE)
-    arcade.draw_circle_filled(400, 200, 200, arcade.color.PUMPKIN)
-    arcade.draw_circle_filled(400, 200, 100, arcade.color.SAFETY_ORANGE)
-    arcade.draw_circle_filled(400, 200, 50, arcade.color.CADMIUM_YELLOW)
-"drawing the ocean"
-def draw_ocean():
-    arcade.draw_lrtb_rectangle_filled(0,800,200,0,arcade.color.MEDIUM_BLUE)
-    arcade.draw_lrtb_rectangle_filled(0,800,133,0,arcade.color.MEDIUM_ELECTRIC_BLUE)
-    arcade.draw_lrtb_rectangle_filled(0,800,66,0,arcade.color.MEDIUM_PERSIAN_BLUE)
 
-"drawing the boat"
-def draw_boat():
-    arcade.draw_polygon_filled([[120, 150],
-                            [150, 100],
-                            [380, 100],
-                            [410, 150]],
-                            arcade.color.CAPUT_MORTUUM)
-    arcade.draw_triangle_filled(410, 160, 270, 320,270,160, arcade.color.CREAM)
-    arcade.draw_triangle_filled(130, 160, 250, 300,250,160, arcade.color.CREAM)
-    arcade.draw_rectangle_filled(260, 220,5,199, arcade.color.CAPUT_MORTUUM)
+#Function that draws the whale
+def draw_whale(position_x,position_y,):
 
+    arcade.draw_circle_filled(position_x - 100, position_y - 195, 80, arcade.color.PALE_AQUA)
+    arcade.draw_rectangle_filled(position_x, position_y - 165.5, 230, 100, arcade.color.PALE_AQUA)
+    arcade.draw_circle_filled(position_x + 100, position_y - 195, 80, arcade.color.PALE_AQUA)
+    arcade.draw_circle_filled(position_x - 300, position_y - 195, 60, arcade.color.PALE_AQUA)
+    arcade.draw_circle_filled(position_x - 250, position_y - 195, 60, arcade.color.PALE_AQUA)
+    arcade.draw_circle_filled(position_x - 220, position_y - 190, 40, arcade.color.MEDIUM_PERSIAN_BLUE)
+    arcade.draw_circle_filled(position_x - 325, position_y - 190, 40, arcade.color.MEDIUM_PERSIAN_BLUE)
 
-arcade.open_window("Sunset", 800,600)
-arcade.set_background_color(arcade.color.PLUM)
-arcade.start_render()
+#Function that draws the ocean
+def draw_ocean(position_x, position_y,):
 
-draw_sunset()
-draw_ocean()
-draw_boat()
+    arcade.draw_rectangle_filled(position_x, position_y + 190, 2000, 100, arcade.color.MEDIUM_BLUE)
+    arcade.draw_rectangle_filled(position_x, position_y + 90, 2000, 100, arcade.color.MEDIUM_ELECTRIC_BLUE)
+    arcade.draw_rectangle_filled(position_x, position_y + 0, 2000, 100, arcade.color.MEDIUM_PERSIAN_BLUE)
 
-arcade.finish_render()
-arcade.run()
+#Function that draws the sunset
+def draw_sunset(position_x, position_y):
 
-"making the all the functions I created one function that I can call"
+    arcade.draw_circle_filled(position_x - 400, position_y - 200, 500, arcade.color.AMARANTH_PINK)
+    arcade.draw_circle_filled(position_x - 400, position_y - 200, 400, arcade.color.RAJAH)
+    arcade.draw_circle_filled(position_x - 400, position_y - 200, 300, arcade.color.SAE)
+    arcade.draw_circle_filled(position_x - 400, position_y - 200, 200, arcade.color.PUMPKIN)
+    arcade.draw_circle_filled(position_x - 400, position_y - 200, 100, arcade.color.SAFETY_ORANGE)
+    arcade.draw_circle_filled(position_x - 400, position_y - 200, 50, arcade.color.YELLOW)
+
+#Defining the main fuction
 def main():
 
-    arcade.open_window("Sunset", 800, 600)
+    arcade.open_window("WHALE", 800, 600)
+
     arcade.set_background_color(arcade.color.PLUM)
-    arcade.start_render()
 
-    draw_sunset()
-    draw_ocean()
-    draw_boat()
+    draw_sunset(800, 500)
 
+    draw_ocean(50, 50)
+
+    draw_whale(500, 200)
 
     arcade.finish_render()
     arcade.run()
