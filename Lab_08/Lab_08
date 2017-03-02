@@ -5,8 +5,13 @@ import arcade
 SPRITE_SCALING = 0.2
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
-text = " : Congratulations You've Won!"
+text = "/65 : Congratulations You've Won!"
+EGG_SPEED = 7
 
+
+class Egg(arcade.Sprite):
+    def update(self):
+        self.center_y += EGG_SPEED
 
 class Fox(arcade.Sprite):
 
@@ -63,6 +68,8 @@ class MyAppWindow(arcade.Window):
         self.all_sprites_list = None
         self.fox_list = None
         self.corn_list = None
+        self.egg_list = arcade.SpriteList()
+
 
         # Set up the player
         self.score = 0
@@ -75,6 +82,7 @@ class MyAppWindow(arcade.Window):
         self.all_sprites_list = arcade.SpriteList()
         self.fox_list = arcade.SpriteList()
         self.corn_list = arcade.SpriteList()
+
 
         # Set up the player
         self.score = 0
@@ -121,7 +129,7 @@ class MyAppWindow(arcade.Window):
         self.set_mouse_visible(False)
 
         # Set the background color
-        arcade.set_background_color(arcade.color.BABY_PINK)
+        arcade.set_background_color(arcade.color.WHITE_SMOKE)
 
     def on_draw(self):
 
@@ -149,12 +157,43 @@ class MyAppWindow(arcade.Window):
          if len(self.corn_list) > 0:
              self.player_sprite.center_y = y
 
+    def on_mouse_press(self, x, y, button, modifiers):
+
+        #Egg icon from i2clipart.com, March. 1. 2017
+        egg = Egg("clipart-brown-egg-fd09.png", SPRITE_SCALING * 1)
+
+        egg.angle = 45
+
+        egg.center_x = self.player_sprite.center_x
+        egg.bottom = self.player_sprite.top
+
+        self.all_sprites_list.append(egg)
+        self.egg_list.append(egg)
+
 
     def animate(self, delta_time):
         """ Movement and game logic """
 
         # Call update on all sprites (The sprites don't do much in this
         # example though.)
+
+
+
+
+        for egg in self.egg_list:
+            hit_list2 = arcade.check_for_collision_with_list(egg,
+                                                             self.fox_list)
+
+            if len(hit_list2) > 0:
+                egg.kill()
+
+            for fox in hit_list2:
+                fox.kill()
+                self.score += 1
+
+            if egg.bottom > SCREEN_HEIGHT:
+                egg.kill()
+
         if len(self.corn_list) > 0:
             self.all_sprites_list.update()
 
